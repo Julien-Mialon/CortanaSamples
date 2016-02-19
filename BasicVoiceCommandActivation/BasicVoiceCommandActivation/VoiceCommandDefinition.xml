@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+	<CommandSet xml:lang="fr-fr" Name="UniversalAppCommandSet_fr-fr">
+		<AppName>Train</AppName>
+		<Example>Rechercher un train de Paris à Lyon pour demain</Example>
+		<Command Name="searchTrain">
+			<Example>Recherche un train pour Lyon demain</Example>
+			<ListenFor RequireAppName="ExplicitlySpecified">Recherche un {builtin:AppName} [de] {origin} [à] {destination} [pour] {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Recherche un {builtin:AppName} [pour] {destination} {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Rechercher un {builtin:AppName} [de] {origin} [à] {destination} [pour] {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Rechercher un {builtin:AppName} [pour] {destination} {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Rechercher un {builtin:AppName} [de] {origin} [à] {destination}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Rechercher un {builtin:AppName} [pour] {destination}</ListenFor>
+			<Feedback>Recherche des trains disponible...</Feedback>
+			<VoiceCommandService Target="TestVoiceCommandService" />
+		</Command>
+		<Command Name="bookTrain">
+			<Example>Réserver un train pour Lyon demain</Example>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserve un {builtin:AppName} [de] {origin} [à] {destination} [pour] {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserve un {builtin:AppName} [pour] {destination} {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserver un {builtin:AppName} [de] {origin} [à] {destination} [pour] {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserver un {builtin:AppName} [pour] {destination} {date}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserver un {builtin:AppName} [de] {origin} [à] {destination}</ListenFor>
+			<ListenFor RequireAppName="ExplicitlySpecified">Réserver un {builtin:AppName} [pour] {destination}</ListenFor>
+			<Feedback>Recherche des trains disponible...</Feedback>
+			<VoiceCommandService Target="BookingVoiceCommandService"/>
+		</Command>
+		
+		<!--<Command Name="searchTrain">
+			<Example>  Paris, Lyon demain</Example>
+			<ListenFor > [de] {origin} [à] {destination} {date} </ListenFor>
+			<Feedback> Recherche des train de {origin} à {destination} {date} </Feedback>
+			<VoiceCommandService Target="TestVoiceCommandService"/>
+		</Command>-->
+
+		<!--<Command Name="bookTrain">
+			<Example> réserver Paris, Lyon demain</Example>
+			<ListenFor > réserver [de] {origin} [à] {destination} {date} </ListenFor>
+			<Feedback> Réserve train de {origin} à {destination} {date} </Feedback>
+			<VoiceCommandService Target="BookingVoiceCommandService"/>
+		</Command>-->
+		<PhraseList Label="origin">
+			<Item>Lyon</Item>
+			<Item>Paris</Item>
+			<Item>Rennes</Item>
+			<Item>Marseille</Item>
+		</PhraseList>
+		<PhraseList Label="destination">
+			<Item>Lyon</Item>
+			<Item>Paris</Item>
+			<Item>Rennes</Item>
+			<Item>Marseille</Item>
+		</PhraseList>
+		<PhraseList Label="date">
+			<Item>maintenant</Item>
+			<Item>demain</Item>
+			<Item>tout à l'heure</Item>
+		</PhraseList>
+	</CommandSet>
+	
+</VoiceCommands>
